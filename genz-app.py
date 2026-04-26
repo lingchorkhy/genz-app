@@ -1,0 +1,73 @@
+import streamlit as st
+
+# Page config
+st.set_page_config(page_title="Chorkhy", layout="wide")
+
+# Custom CSS for Gen Z vibe
+st.markdown("""
+    <style>
+    body {
+        background: linear-gradient(135deg, #ff00cc, #3333ff);
+        color: white;
+    }
+    .main {
+        background: linear-gradient(135deg, #ff00cc, #3333ff);
+    }
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .stButton>button {
+        background-color: #ff4b4b;
+        color: white;
+        border-radius: 10px;
+        height: 3em;
+        width: 100%;
+        font-size: 18px;
+    }
+    .card {
+        background-color: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Title
+st.markdown("<h1>🔥 Chorkhy 🔥</h1>", unsafe_allow_html=True)
+
+# Sidebar
+st.sidebar.header("🎯 Choose Your Style")
+style = st.sidebar.selectbox("Select Style", ["Streetwear", "Minimal", "Vintage", "Luxury"])
+
+# Main content
+st.write("## 💡 Discover Your Look")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown('<div class="card">👕 Oversized T-shirt<br>🔥 Trendy & Comfortable</div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="card">👖 Baggy Jeans<br>💯 Street Style</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="card">👟 Sneakers<br>🚀 Must-have</div>', unsafe_allow_html=True)
+
+# Button interaction
+if st.button("✨ Generate Outfit Idea"):
+    if style == "Streetwear":
+        st.success("🔥 Hoodie + Cargo Pants + Sneakers")
+    elif style == "Minimal":
+        st.success("🤍 Plain Tee + Slim Fit Jeans + White Shoes")
+    elif style == "Vintage":
+        st.success("📼 Retro Shirt + High Waist Pants")
+    elif style == "Luxury":
+        st.success("💎 Blazer + Designer Shoes")
+
+# Footer
+st.write("---")
+st.write("🚀 Built with Streamlit | Gen Z Fashion App")
